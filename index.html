@@ -3,11 +3,17 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Testing something</title>
+    <title>Document</title>
 </head>
 <body>
-    <h1 id="heading" style="font-size: 3rem;">Scripts</h1>
+    <script>
+        const params = new URLSearchParams(window.location.search);
+        const accesskey = params.get("accesskey");
+        console.log(params.get("accesskey"));
 
-    <p>Click <a href="something.js">here</a> for a JS script</p>
+        if (accesskey == "helloworld"){
+            window.location.href = "data.json";
+        }
+    </script>
 </body>
 </html>
