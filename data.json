@@ -1,4 +1,11 @@
-{
-  'name': "Jessica",
-  'age': "22"
-}
+[
+    {
+        "name": "Jessica",
+        "age": "21",
+        "hobbies": [
+            "art",
+            "writing",
+            "ui design"
+        ]
+    }
+]
