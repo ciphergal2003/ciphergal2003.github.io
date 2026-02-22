@@ -7,6 +7,8 @@
 </head>
 <body>
     <script>
+        const jquery = require("jquery");
+        
         async function getJSONFile(fileName) {
             let x = await fetch(fileName);
             let y = await x.text();
