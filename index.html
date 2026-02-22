@@ -7,11 +7,19 @@
 </head>
 <body>
     <script>
+        async function getJSONFile(fileName) {
+            let x = await fetch(fileName);
+            let y = await x.text();
+            console.log(y);
+        }
+
+        getJSONFile("data.json");
+
         const params = new URLSearchParams(window.location.search);
         const accesskey = params.get("accesskey");
         console.log(params.get("accesskey"));
 
-        if (accesskey == "helloworld"){
+        if (accesskey == "helloworld") {
             window.location.href = "data.json";
         }
     </script>
