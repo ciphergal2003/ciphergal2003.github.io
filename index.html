@@ -6,14 +6,43 @@
     <title>Document</title>
 </head>
 <body>
-    <script>
-        const params = new URLSearchParams(window.location.search);
-        const accesskey = params.get("accesskey");
-        console.log(params.get("accesskey"));
+    <main>
+        <button id="btnLike1"></button>
+        <button id="btnLike2"></button>
+    </main>
 
-        if (accesskey == "helloworld") {
-            window.location.href = "data.json";
+    <script>
+        let likes1;
+        let likes2;
+
+        if (!(likes1 = window.localStorage.getItem("likes1"))){
+            likes1 = 30; likes2 = 40;
+        } else {
+            likes1 = window.localStorage.getItem("likes1"); likes2 = window.localStorage.getItem("likes2");
         }
+
+        let btnID1 = "btnLike1"; let btnID2 = "btnLike2";
+        const btnLike1 = document.getElementById(btnID1);
+        const btnLike2 = document.getElementById(btnID2);
+        btnLike1.textContent = `❤️ ${likes1}`;
+        btnLike2.textContent = `❤️ ${likes2}`;
+
+        const update = (btnEl, isOne) => {
+            btnEl.textContent = isOne ? `❤️ ${likes1}` : `❤️ ${likes2}`;
+        }
+
+        btnLike1.addEventListener("click", () => {
+            likes1++;
+            window.localStorage.setItem("likes1", String(likes1));
+
+            update(btnLike1, true);
+        });
+        btnLike2.addEventListener("click", () => {
+            likes2++;
+            window.localStorage.setItem("likes2", String(likes2));
+
+            update(btnLike2, false);
+        });
     </script>
 </body>
 </html>
